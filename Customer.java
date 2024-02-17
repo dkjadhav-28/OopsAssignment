@@ -1,6 +1,6 @@
 package bank_application;
 
-public interface Customer {
+interface Customer {
 //    double dailyWithdrawalLimit = 100000;
 
     double getBalance();
@@ -75,15 +75,29 @@ class RegularUser implements Customer{
 
     @Override
     public void deposit(double amount) {
-        Transcations transit = new Transcations();
-        currentBalance = transit.deposit(currentBalance,amount);
-        System.out.println("Current balance: "+currentBalance);
+//        Transcations transit = new Transcations();
+//        currentBalance = transit.deposit(currentBalance,amount);
+        currentBalance += amount;
+        System.out.println("Current balance: " + currentBalance);
     }
 
     @Override
     public void withdraw(double amount) {
-        Transcations transit = new Transcations();
-        currentBalance = transit.withdraw(currentBalance,amount);
+//        Transcations transit = new Transcations();
+//        currentBalance = transit.withdraw(currentBalance,amount);
+          currentBalance-=amount;
         System.out.println("Current balance:"+currentBalance);
+    }
+
+
+    public void display() {
+        System.out.println("RegularUser{" +
+                "name='" + name + '\'' +
+                ", currentBalance=" + currentBalance +
+                ", totalDepositsAmount=" + totalDepositsAmount +
+                ", accountType='" + accountType + '\'' +
+                ", DAILY_WITHDRAWAL_LIMIT=" + DAILY_WITHDRAWAL_LIMIT +
+                ", accountDetails=" + accountDetails.displayAccountDetails()+
+                '}');
     }
 }
