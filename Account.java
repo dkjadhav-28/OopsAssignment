@@ -30,11 +30,16 @@ public class Account {
 
 
 
-    public static int generateAccountNumber() {
+    public int generateAccountNumber() {
         Random random = new Random();
         return random.nextInt(1001) + 1000;  // Generates a random number between 1000 and 2000 (inclusive)
     }
 
 
-
+    public String displayAccountDetails() {
+        return "Account{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", accountType='" + accountType + '\'' +
+                '}';
+    }
 }
